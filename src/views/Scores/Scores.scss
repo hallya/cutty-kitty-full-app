@@ -1,0 +1,15 @@
+ol {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    height: 15vh;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px white;
+    overflow: hidden;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}
