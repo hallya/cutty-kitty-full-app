@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  flex: 0 2 auto;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  
+  nav {
+    padding: 20px 25vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 10px;
+      transform: translateY(0px);
+      box-shadow: 0 0px 5px -2px lightgray;
+      transition: .3s;
+      
+      &.active {
+        background: #373c47;
+        transform: translateY(-5px);
+        box-shadow: 0 5px 5px -4px white;
+      }
+    }
+  }
+}
+.App-main {
+  flex: 2 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px;
+}
