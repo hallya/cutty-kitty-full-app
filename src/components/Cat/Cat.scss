@@ -1,5 +1,6 @@
 article {
   box-sizing: border-box;
   height: 100%;
-  background: salmon;
+  display: flex;
+  justify-content: space-between;
 }

@@ -5,15 +5,21 @@ import Picture from '../../components/Picture/Picture';
 import './Scores.scss';
 
 function Scores(props) {
-  const { cats, score } = props;
+  const { cats } = props;
+
   return (
     <ol>
       {
-        cats.map((cat, index) => (
-          <li key={index}>
+        cats.map(({ url, score }, index) => (
+          <li className={ score > 0 ? 'allow-to-win' : '' } key={index}>
             <Cat>
-              <Picture url={cat.url} />
-              <h4>{score}</h4>
+              <figure>
+                <Picture url={url} />
+                <figcaption>
+                  <span className={score === 0 ? 'hide-rank' : ''}>#{index + 1}</span>
+                  <div className="score-number">{score}</div>
+                </figcaption>
+              </figure>
             </Cat>
           </li>
         ))
@@ -24,6 +30,5 @@ function Scores(props) {
 
 Scores.propTypes = {
   cats: PropTypes.array,
-  score: PropTypes.number,
 };
 export default Scores;
