@@ -15,8 +15,16 @@ function App() {
   const [cats, setCatList] = useState([]);
 
   useEffect(() => {
-    setCatList(mockCats.images || api.getCats());
+    const catList = addScoreToList(mockCats.images || api.getCats());
+    setCatList(catList);
   }, []);
+
+  function addScoreToList(list) {
+    return list.map(element => ({
+      ...element,
+      score: 0
+    }));
+  }
 
   return (
     <Router>
