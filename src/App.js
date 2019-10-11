@@ -38,20 +38,19 @@ function App() {
       <main className="App-main">
         <Switch>
           <Route exact path="/">
-            <Suspense fallback={<h1>Loading Cutty App...</h1>}>
+            <Suspense fallback={<h1>Loading Cutty App ♥...</h1>}>
               <Welcome />
             </Suspense>
           </Route>
           <Route exact path="/scores">
-            <Suspense fallback={<h1>Let's see actual scores</h1>}>
+            <Suspense fallback={<h1>Let's see actual scores 🤓</h1>}>
               {
                 cats.length && <Scores cats={cats} />
               }
             </Suspense>
           </Route>
           <Route exact path="/vote">
-            <Suspense fallback={<h4>Now let's vote for the ONE</h4>}>
-              <Vote />
+            <Suspense fallback={<h1>Now let's vote for THE ONE !</h1>}>
             </Suspense>
           </Route>
         </Switch>
