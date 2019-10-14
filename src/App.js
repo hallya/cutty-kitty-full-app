@@ -95,13 +95,6 @@ function App() {
   const { cats, leftIndex, rightIndex, roundNumber } = state;
   return (
     <Router>
-      <header className="App-header">
-        <nav>
-          <NavLink to="/scores">Scores</NavLink>
-          <NavLink to="/vote">Vote</NavLink>
-        </nav>
-      </header>
-
       <main className="App-main">
         <Switch>
           <Route exact path="/">
@@ -130,6 +123,12 @@ function App() {
           </Route>
         </Switch>
       </main>
+      <footer className="App-footer">
+        <nav>
+          <NavLink to="/scores">Scores</NavLink>
+          <NavLink to="/vote">Vote</NavLink>
+        </nav>
+      </footer>
     </Router>
   );
 }
