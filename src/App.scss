@@ -1,3 +1,4 @@
+@import "./styles/mixin.scss";
 .App {
   text-align: center;
 }
@@ -11,32 +12,34 @@
   position: sticky;
   flex: 0 2 auto;
   font-size: calc(10px + 2vmin);
-  color: white;
-  border-bottom:1px solid white;
+  border-bottom:1px solid salmon;
   background-color: #282c34;
   
   nav {
     margin-bottom: 10px;
-    padding: 20px 25vw;
     display: flex;
+    padding: 20px 15vw;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
 
+    @include tablet {
+      padding: 20px 25vw;
+    }
     a {
-      color: white;
-      font-size: 40px;
+      color: salmon;
+      font-size: 2rem;
       text-decoration: none;
       padding: 5px 10px;
       border-radius: 10px;
       transform: translateY(0px);
-      box-shadow: 0 0px 5px -2px lightgray;
+      box-shadow: 0 0px 5px -2px salmon;
       transition: .3s;
       
       &.active {
         background: #373c47;
         transform: translateY(-5px);
-        box-shadow: 0 5px 5px -4px white;
+        box-shadow: 0 5px 5px -4px;
       }
     }
   }

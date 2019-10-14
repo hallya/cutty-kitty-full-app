@@ -110,7 +110,7 @@ function App() {
             </Suspense>
           </Route>
           <Route exact path="/scores">
-            <Suspense fallback={<h1>Let's see actual scores 🤓</h1>}>
+            <Suspense fallback={<h1>Let's see actual scores <span role="img" aria-label="Nerd face emoji">🤓</span></h1>}>
               {
                 cats.length && <Scores cats={cats} />
               }
