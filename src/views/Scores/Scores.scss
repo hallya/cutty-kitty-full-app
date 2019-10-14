@@ -1,6 +1,6 @@
 @import '../../styles/mixin.scss';
 
-ol {
+.score-container {
   display: flex;
   flex-direction: column;
 
@@ -11,58 +11,63 @@ ol {
     background-image: linear-gradient(to left, #ffffff);
     overflow: hidden;
     
-    &:first-child .allow-to-win {
-      background-image: linear-gradient(to left, #ff419c, #e944bb, #c551d7, #8e60ef, #006eff);
-    }
-    &:nth-child(2) .allow-to-win {
-      background-image: linear-gradient(to left, #006eff, #009dff, #00c3ff, #00e3ff, #00ffea);
-    }
-    &:nth-child(3) .allow-to-win {
-      background-image: linear-gradient(to left, #78a3a0, #00ffcc, #00ffa2, #34ff6b, #73ff00);
+    &.allow-to-win {
+      &:first-child {
+        background-image: linear-gradient(to left, #ff419c, #e944bb, #c551d7, #8e60ef, #006eff);
+      }
+      &:nth-child(2) {
+        background-image: linear-gradient(to left, #006eff, #009dff, #00c3ff, #00e3ff, #00ffea);
+      }
+      &:nth-child(3) {
+        background-image: linear-gradient(to left, #78a3a0, #00ffcc, #00ffa2, #34ff6b, #73ff00);
+      }
     }
     &:not(:last-child) {
       margin-bottom: 10px;
     }
 
-    figure {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-
-      picture {
-        max-width: 55%;
-        
-        img {
-          border-right: 3px solid black;
-          box-shadow: 0px 0px 5px 2px black;
-        }
-      }
-      figcaption {
+    article.score-cat {
+      figure {
+        width: 100%;
         display: flex;
-        align-items: center;
-        color: white;
-        font-size: 2rem;
-        text-align: center;
-        
-        @include tablet {
-          font-size: 3rem;
+        justify-content: space-between;
+  
+        picture {
+          max-width: 55%;
+          overflow: hidden;
+          
+          img {
+            border-right: 3px solid black;
+            box-shadow: 0px 0px 5px 2px black;
+          }
         }
-        .hide-rank {
-          display: none;
-        }
-        .score-number {
-          font-size: 3rem;
-          height: 100%;
-          width: 100%;
-          padding: 0px 20px;
-          margin-left: 10px;
-          background: white;
-          color: #272c34;
+        figcaption {
           display: flex;
           align-items: center;
+          color: white;
+          font-size: 2rem;
+          text-align: center;
           
           @include tablet {
-            font-size: 4rem;
+            font-size: 3rem;
+          }
+          .hide-rank {
+            display: none;
+          }
+          .score-number {
+            font-size: 3rem;
+            height: 100%;
+            width: 100%;
+            padding: 0px 20px;
+            margin-left: 10px;
+            background: white;
+            color: #272c34;
+            display: flex;
+            align-items: center;
+            
+            @include tablet {
+              font-size: 4rem;
+            }
           }
         }
       }

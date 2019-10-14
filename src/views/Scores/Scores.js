@@ -6,23 +6,29 @@ import './Scores.scss';
 
 function Scores(props) {
   const { cats } = props;
+  cats.sort((a,b) => b.score - a.score);
 
   return (
-    <ol>
+    <ol className="score-container">
       {
-        cats.map(({ url, score }, index) => (
-          <li className={ score > 0 ? 'allow-to-win' : '' } key={index}>
-            <Cat>
-              <figure>
-                <Picture url={url} />
-                <figcaption>
-                  <span className={score === 0 ? 'hide-rank' : ''}>#{index + 1}</span>
-                  <div className="score-number">{score}</div>
-                </figcaption>
-              </figure>
-            </Cat>
-          </li>
-        ))
+        cats.map(({ url, score }, index) => {
+          const lineClassName = score > 0 ? 'allow-to-win' : '';
+          const rankClassName = score === 0 ? 'hide-rank' : '';
+
+          return (
+            <li className={lineClassName} key={index}>
+              <Cat className="score-cat">
+                <figure>
+                  <Picture url={url} />
+                  <figcaption>
+                    <span className={rankClassName}>#{index + 1}</span>
+                    <span className="score-number">{score}</span>
+                  </figcaption>
+                </figure>
+              </Cat>
+            </li>
+          );
+        })
       }
     </ol>
   );
