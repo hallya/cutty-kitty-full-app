@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import './Cat.scss';
 
 function Cat(props) {
-  const { children } = props;
+  const { children, className } = props;
   return (
-    <article>
+    <article className={className}>
       { children }
     </article>
   );
 }
 
 Cat.propTypes = {
-  children: PropTypes.any
+  children: PropTypes.any,
+  className: PropTypes.string || PropTypes.array
 };
+
 export default Cat;
