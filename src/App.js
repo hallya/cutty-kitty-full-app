@@ -1,6 +1,5 @@
-import React, { lazy, Suspense } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
 import api from './services/api/api';
@@ -20,15 +19,19 @@ function App() {
   });
 
   useEffect(() => {
-    const cats = addPropertiesIn(mockCats.images || api.getCats());
-    const leftIndex = 0;
-    const rightIndex = cats.length - 1;
-    setState({
-      ...state,
-      cats,
-      leftIndex,
-      rightIndex
-    });
+    async function init() {
+      const results = await api.getCats();
+      const cats = await addPropertiesIn(mockCats.images);
+      const leftIndex = 0;
+      const rightIndex = cats.length - 1;
+      setState({
+        ...state,
+        cats,
+        leftIndex,
+        rightIndex
+      });
+    }
+    init();
   }, []);
   
   function addPropertiesIn(list) {
