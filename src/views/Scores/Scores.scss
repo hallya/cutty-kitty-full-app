@@ -15,7 +15,7 @@
     height: 15vh;
     border-radius: 10px;
     box-shadow: 0 0 0 2px white;
-    background-image: linear-gradient(to left, #ffffff);
+    background: transparent;
     overflow: hidden;
     
     @include laptop {
