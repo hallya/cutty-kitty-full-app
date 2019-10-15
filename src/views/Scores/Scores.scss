@@ -4,6 +4,13 @@
   display: flex;
   flex-direction: column;
 
+  @include tablet {
+    padding: 0 10vw;
+  }
+  @include laptop {
+    padding: 0 25vw;
+  }
+
   li {
     height: 15vh;
     border-radius: 10px;
@@ -11,6 +18,9 @@
     background-image: linear-gradient(to left, #ffffff);
     overflow: hidden;
     
+    @include laptop {
+      height: 20vh;
+    }
     &.allow-to-win {
       &:first-child {
         background-image: linear-gradient(to left, #ff419c, #e944bb, #c551d7, #8e60ef, #006eff);
@@ -31,14 +41,16 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-  
-        picture {
+        
+        picture{
+          margin: auto 0;
           max-width: 55%;
           overflow: hidden;
-          
+          box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.699);
+
           img {
-            border-right: 3px solid black;
-            box-shadow: 0px 0px 5px 2px black;
+            width: 100%;
+            height: auto;
           }
         }
         figcaption {
