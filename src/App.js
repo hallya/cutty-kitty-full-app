@@ -20,8 +20,8 @@ function App() {
 
   useEffect(() => {
     async function init() {
-      const results = await api.getCats();
-      const cats = await addPropertiesIn(mockCats.images);
+      const {images} = await api.getCats();
+      const cats = format(images);
       const leftIndex = 0;
       const rightIndex = cats.length - 1;
       setState({
@@ -34,9 +34,10 @@ function App() {
     init();
   }, []);
   
-  function addPropertiesIn(list) {
+  function format(list) {
     return list.map(element => ({
       ...element,
+      url: element.url.replace('http', 'https'),
       score: 0,
       view: 0
     }));
