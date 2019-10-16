@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
-const stream = require('stream');
 
 const app = express();
 const port = process.env.APP_SERVER_PORT || 3000;
