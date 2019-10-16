@@ -1,0 +1,53 @@
+@import '../../styles/mixin.scss';
+
+.candidates-container {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex: 1 1 auto;
+
+  @include laptop {
+    padding: 0 20vw;
+  }
+  .cat-candidate {
+    width: 45%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.8);
+    
+    @include tablet {
+      width: 35%;
+    }
+    figure {
+      picture, img {
+        width: 100%;
+        height: auto;
+      }
+      figcaption {
+        font-weight: bolder;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+    }
+    button {
+      margin: 10px 0;
+      background-color: rgba(255, 255, 255, 0.8);
+      width: 70%;
+      border: none;
+      border-radius: 30px;
+      font-size: 30px;
+      box-shadow: 0 5px 5px -3px black;
+      transition: .1s;
+
+      &:active {
+        background-color: rgba(122, 122, 122, 0.8);
+        box-shadow: 0 1px 5px -3px black;
+      }
+    }
+  }
+}

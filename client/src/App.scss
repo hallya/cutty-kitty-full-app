@@ -1,0 +1,62 @@
+@import "./styles/mixin.scss";
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-footer {
+  bottom: 0px;
+  position: sticky;
+  flex: 0 2 auto;
+  font-size: calc(10px + 2vmin);
+  box-shadow: 0 -1px 0 1px salmon;
+  background-color: #282c34;
+  
+  nav {
+    margin-bottom: 10px;
+    display: flex;
+    padding: 20px 15vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    @include tablet {
+      padding: 20px 25vw;
+    }
+    a {
+      color: salmon;
+      font-size: 2rem;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 10px;
+      transform: translateY(0px);
+      box-shadow: 0 0px 5px -2px salmon;
+      transition: .3s;
+      
+      &.active {
+        background: #373c47;
+        transform: translateY(-5px);
+        box-shadow: 0 5px 5px -4px;
+      }
+    }
+  }
+}
+.App-main {
+  flex: 2 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 10px;
+
+  h1 {
+    border: 1px solid salmon;
+    border-radius: 20px;
+    padding: 20px;
+    color: salmon;
+    align-self: center;
+    text-align: center;
+  }
+}
