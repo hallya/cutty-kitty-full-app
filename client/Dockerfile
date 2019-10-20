@@ -10,6 +10,7 @@ RUN npm install
 
 COPY . /app/client
 
+ARG PORT
 ENV PORT=4000
 
 EXPOSE 4000

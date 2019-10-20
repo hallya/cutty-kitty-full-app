@@ -10,6 +10,7 @@ RUN npm install
 
 COPY . /app/server
 
+ARG APP_SERVER_PORT
 ENV APP_SERVER_PORT=8000
 
 EXPOSE 8000

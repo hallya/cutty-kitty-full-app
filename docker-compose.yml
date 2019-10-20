@@ -2,9 +2,7 @@ version: '3'
 
 services:
   server:
-    build: 
-      context: ./server
-      dockerfile: Dockerfile
+    build: ./server
     expose: 
       - ${APP_SERVER_PORT}
     environment:
@@ -16,9 +14,7 @@ services:
     command: npm run start
   
   client:
-    build: 
-      context: ./client
-      dockerfile: Dockerfile
+    build: ./client
     expose:
       - ${APP_CLIENT_PORT}
     environment:
