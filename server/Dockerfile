@@ -15,4 +15,4 @@ ENV APP_SERVER_PORT=8000
 
 EXPOSE 8000
 
-CMD ["npm", "run", "start"]
+CMD ["node", "src/index.js"]

@@ -1,0 +1,6 @@
+{
+  "name": "Cutty Kitty app",
+  "description": "An app to choose the cuttest kitty in the world",
+  "image": "heroku/nodejs",
+  "addons": []
+}

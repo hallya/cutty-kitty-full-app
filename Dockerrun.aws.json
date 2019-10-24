@@ -1,0 +1,76 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "latelier-client",
+      "host": {
+        "sourcePath": [
+          "/app/client"
+        ]
+      }
+    },
+    {
+      "name": "latelier-server",
+      "host": {
+        "sourcePath": [
+          "/app/server"
+        ]
+      }
+    }
+  ],
+  "containerDefinition": [
+    {
+      "name": "latelier-server",
+      "image": "hallya/latelier:server",
+      "environment": [
+        {
+          "name": "PORT",
+          "value": "${APP_SERVER_PORT}"
+        }
+      ],
+      "essential": true,
+      "memory": 128,
+      "mountPoints": [
+        {
+          "sourceVolume": "latelier-server",
+          "containerPath": "/app/server",
+          "readOnly": true
+        }
+      ],
+      "portMapping": [
+        {
+          "hostPort": 443,
+          "containerPort": 8000
+        }
+      ]
+    },
+    {
+      "name": "latelier-client",
+      "image": "hallya/latelier:client",
+      "environment": [
+        {
+          "name": "PORT",
+          "value": "${APP_CLIENT_PORT}"
+        }
+      ],
+      "essential": true,
+      "memory": 128,
+      "mountPoints": [
+        {
+          "sourceVolume": "latelier-client",
+          "containerPath": "/app/client",
+          "readOnly": true
+        }
+      ],
+      "portMapping": [
+        {
+          "hostPort": 443,
+          "containerPort": 4000
+        }
+      ],
+      "links": [
+        "latelier-server"
+      ]
+    }
+  ]
+}

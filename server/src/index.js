@@ -1,18 +1,35 @@
+const fs = require('fs');
+const https = require('https');
 const express = require('express');
 const cors = require('cors');
-const fs = require('fs');
 
 const app = express();
-const port = process.env.APP_SERVER_PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
 
 app.get('/cats', (req, res) => {
-  const readable = fs.createReadStream('./cats.json');
-  res.status(200);
-  readable
-  .pipe(res);
+  const options = {
+    hostname: 'latelier.co',
+    path: '/data/cats.json',
+    port: 443,
+    method: 'GET',
+  }
+
+  https
+    .request(options, (response) => {
+      response.on('data', (data) => {
+        console.log(data.toString());
+        console.log('\n----------------------------\n');
+      });
+      response.pipe(res);
+    })
+    .on('error', (error) => {
+      console.error(error);
+      res.sendStatus(400);
+    })
+    .end();
 })
 
 app.get('*', (req, res) => {
